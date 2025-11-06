@@ -1,0 +1,53 @@
+---
+// src/components/NombresFlores.astro
+---
+
+<section class="hero-section">
+  <img 
+    src="/imagenes/fondo.webp" 
+    alt="Nombres con flores"
+    class="hero-image"
+  />
+  
+  <div class="absolute bottom-10 left-0 right-0 flex justify-center gap-10 px-5 z-10 md:gap-10 lg:gap-24">
+    <a href="#" class="block transition-transform hover:scale-105">
+      <img 
+        src="/imagenes/Ubicacion.webp" 
+        alt="Ubicación"
+        class="w-32 h-auto md:w-36 lg:w-40"
+      />
+    </a>
+    
+    <a href="#" class="block transition-transform hover:scale-105">
+      <img 
+        src="/imagenes/ConfirmarAsistencia.webp" 
+        alt="Confirmar Asistencia"
+        class="w-32 h-auto md:w-36 lg:w-40"
+      />
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
