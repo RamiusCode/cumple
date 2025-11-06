@@ -1,0 +1,102 @@
+---
+// src/components/NombresFlores.astro
+---
+<section class="hero-section">
+  <img 
+    src="/imagenes/fondo.webp" 
+    alt="Nombres con flores"
+    class="hero-image"
+  />
+  
+  <div class="absolute bottom-10 left-0 right-0 flex justify-center gap-10 px-5 z-10 md:gap-10 lg:gap-24">
+    <a 
+    href="https://maps.app.goo.gl/jwLFGxSMo4JGQ4Cq6" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="block transition-transform hover:scale-105"
+    >
+    <img 
+        src="/imagenes/Ubicacion.webp" 
+        alt="Ubicación"
+        class="w-32 h-auto md:w-36 lg:w-40"
+    />
+    </a>
+
+    
+<a 
+  href="https://wa.me/59179795007?text=Hola!👋%20Confirmo%20Mi%20Asistencia%20al🎉%20CUMPLEAÑOS%20DE%20🎊%20LUKA🎈%20el%20Domingo%2016%20de%20Noviembre%20Sin%20falta.✨" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="block transition-transform hover:scale-105"
+>
+  <img 
+    src="/imagenes/ConfirmarAsistencia.webp" 
+    alt="Confirmar Asistencia"
+    class="w-32 h-auto md:w-36 lg:w-40"
+  />
+</a>
+
+  </div>
+
+  <!-- Audio element -->
+  <audio id="backgroundMusic" loop>
+    <source src="/musica/melodia.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+</section>
+
+<style>
+  .hero-section {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>
+
+<script>
+  const music = document.getElementById('backgroundMusic') as HTMLAudioElement;
+  let musicStarted = false;
+
+  // Función para intentar reproducir la música
+  const playMusic = async () => {
+    try {
+      await music.play();
+      musicStarted = true;
+    } catch (error) {
+      console.log('Reproducción automática bloqueada. El usuario debe interactuar primero.');
+    }
+  };
+
+  // Intentar reproducir cuando se carga la página
+  playMusic();
+
+  // Si falla la reproducción automática, intentar con cualquier interacción
+  const startMusicOnInteraction = () => {
+    if (!musicStarted) {
+      playMusic();
+      // Remover los listeners después de la primera interacción
+      document.removeEventListener('click', startMusicOnInteraction);
+      document.removeEventListener('touchstart', startMusicOnInteraction);
+      document.removeEventListener('keydown', startMusicOnInteraction);
+    }
+  };
+
+  document.addEventListener('click', startMusicOnInteraction);
+  document.addEventListener('touchstart', startMusicOnInteraction);
+  document.addEventListener('keydown', startMusicOnInteraction);
+</script>
